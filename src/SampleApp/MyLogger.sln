@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLogger", "MyLogger\MyLogger.csproj", "{8B846EB4-5AC5-4390-B42E-5A1027F08C21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplunkLogger", "..\SplunkLogger\SplunkLogger.csproj", "{88D50C42-4EB4-4798-A8D9-878E5C43C51F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B846EB4-5AC5-4390-B42E-5A1027F08C21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B846EB4-5AC5-4390-B42E-5A1027F08C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B846EB4-5AC5-4390-B42E-5A1027F08C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B846EB4-5AC5-4390-B42E-5A1027F08C21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88D50C42-4EB4-4798-A8D9-878E5C43C51F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88D50C42-4EB4-4798-A8D9-878E5C43C51F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88D50C42-4EB4-4798-A8D9-878E5C43C51F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88D50C42-4EB4-4798-A8D9-878E5C43C51F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCCDE99B-9F0A-4ABE-A3F4-4CB270249C79}
+	EndGlobalSection
+EndGlobal

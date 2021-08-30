@@ -17,6 +17,7 @@
     <Copyright>VTEX @ 2018</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageIconUrl>https://raw.githubusercontent.com/vtex/SplunkLogger/master/VTEX_icon.png</PackageIconUrl>
+    <ReleaseVersion>1.1.3</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>
