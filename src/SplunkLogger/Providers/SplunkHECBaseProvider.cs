@@ -43,7 +43,10 @@ namespace Splunk.Providers
 
         void SetupHttpClient(SplunkLoggerConfiguration configuration, string endPointCustomization)
         {
-            httpClient = new HttpClient
+            httpClient = new HttpClient(new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback = (msg, cert, chain, errors) => true
+            })
             {
                 BaseAddress = GetSplunkCollectorUrl(configuration, endPointCustomization)
             };

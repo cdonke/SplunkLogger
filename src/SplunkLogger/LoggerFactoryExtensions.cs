@@ -2,6 +2,7 @@
 using Splunk.Providers;
 using Splunk.Configurations;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 
 namespace Splunk
 {
@@ -32,11 +33,12 @@ namespace Splunk
         /// <param name="loggerFactory">Logger factory.</param>
         /// <param name="configuration">Configuration.</param>
         /// <param name="formatter">Custom text formatter.</param>
-        public static ILoggerFactory AddHECJsonSplunkLogger(this ILoggerFactory loggerFactory, SplunkLoggerConfiguration configuration, ILoggerFormatter formatter = null)
+        public static ILoggerFactory AddHECJsonSplunkLogger(this ILoggerFactory loggerFactory, SplunkLoggerConfiguration configuration,
+            ILoggerFormatter formatter = null, EventsBag eventsBag=null)
         {
             if (formatter == null)
                 formatter = DefaultLoggerFormatter;
-            loggerFactory.AddProvider(new SplunkHECJsonLoggerProvider(configuration, formatter));
+            loggerFactory.AddProvider(new SplunkHECJsonLoggerProvider(configuration, formatter, eventsBag));
             return loggerFactory;
         }
 

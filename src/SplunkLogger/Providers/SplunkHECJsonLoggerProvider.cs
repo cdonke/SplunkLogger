@@ -24,12 +24,15 @@ namespace Splunk.Providers
         /// </summary>
         /// <param name="configuration">Splunk configuration instance for HEC.</param>
         /// <param name="loggerFormatter">Formatter instance.</param>
-        public SplunkHECJsonLoggerProvider(SplunkLoggerConfiguration configuration, ILoggerFormatter loggerFormatter = null)
+        public SplunkHECJsonLoggerProvider(SplunkLoggerConfiguration configuration,
+            ILoggerFormatter loggerFormatter = null, EventsBag eventsBag = null)
             : base(configuration, "event")
         {
             this.loggerFormatter = loggerFormatter;
             loggers = new ConcurrentDictionary<string, ILogger>();
-            batchManager = new BatchManager(configuration.HecConfiguration.BatchSizeCount, configuration.HecConfiguration.BatchIntervalInMilliseconds, Emit);
+            batchManager = new BatchManager(configuration.HecConfiguration.BatchSizeCount,
+                configuration.HecConfiguration.BatchIntervalInMilliseconds, Emit,
+                eventsBag);
         }
 
         /// <summary>

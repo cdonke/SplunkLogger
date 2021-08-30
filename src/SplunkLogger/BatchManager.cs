@@ -30,9 +30,10 @@ namespace Splunk
         /// <param name="batchSizeCount">Batch size count.</param>
         /// <param name="batchIntervalInMilliseconds">Batch interval in milliseconds.</param>
         /// <param name="emitAction">Emit action to be invoked at Emit process.</param>
-        public BatchManager(uint batchSizeCount, int batchIntervalInMilliseconds, Action<List<object>> emitAction)
+        public BatchManager(uint batchSizeCount, int batchIntervalInMilliseconds, Action<List<object>> emitAction,
+            EventsBag eventsBag = null)
         {
-            events = new ConcurrentBag<object>();
+            events = eventsBag.Bag ?? new ConcurrentBag<object>();
             this.batchSizeCount = batchSizeCount;
 
             if (batchIntervalInMilliseconds > 0)
