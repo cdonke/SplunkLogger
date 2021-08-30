@@ -33,7 +33,7 @@ namespace Splunk
         public BatchManager(uint batchSizeCount, int batchIntervalInMilliseconds, Action<List<object>> emitAction,
             EventsBag eventsBag = null)
         {
-            events = eventsBag.Bag ?? new ConcurrentBag<object>();
+            events = eventsBag?.Bag ?? new ConcurrentBag<object>();
             this.batchSizeCount = batchSizeCount;
 
             if (batchIntervalInMilliseconds > 0)

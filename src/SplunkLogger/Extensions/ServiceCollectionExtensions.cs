@@ -32,5 +32,26 @@ namespace Splunk.Extensions
 
             return builder;
         }
+
+        public static ILoggingBuilder AddSplunkRawLogger(this ILoggingBuilder builder, IConfiguration configuration,
+            ILoggerFormatter formatter = null)
+        {
+            builder.Services.TryAdd(ServiceDescriptor.Singleton<ILoggerFactory, LoggerFactory>());
+            builder.Services.TryAdd(ServiceDescriptor.Singleton(typeof(ILogger<>), typeof(Logger<>)));
+
+
+            builder.Services.TryAdd(ServiceDescriptor.Singleton<ILoggerFormatter>((sp) => formatter ?? new BasicLoggerFormatter()));
+            builder.Services.TryAdd(ServiceDescriptor.Singleton<EventsBag, EventsBag>());
+
+            builder.Services.TryAdd(ServiceDescriptor.Singleton<SplunkLoggerConfiguration>((obj) =>
+                configuration.GetSection("Splunk").Get<SplunkLoggerConfiguration>()
+            ));
+
+
+            builder.Services.TryAddEnumerable(ServiceDescriptor.Singleton<ILoggerProvider, SplunkHECRawLoggerProvider>());
+
+
+            return builder;
+        }
     }
 }
